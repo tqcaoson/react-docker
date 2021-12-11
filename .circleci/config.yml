@@ -46,6 +46,6 @@ workflows:
               only:
                 - master
       # uncomment the 3 following lines to enable deploying
-      # - deploy:
-      #     requires:
-      #       - build-and-push
+      - deploy:
+          requires:
+            - build-and-push
