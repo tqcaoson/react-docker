@@ -39,14 +39,14 @@ workflows:
   my-pipeline:
     jobs:
       - node/test
-      # - build-and-push:
-      #     requires:
-      #       - node/test
-      #     filters:
-      #       branches:
-      #         only:
-      #           - master
+      - build-and-push:
+          requires:
+            - node/test
+          filters:
+            branches:
+              only:
+                - master
       # uncomment the 3 following lines to enable deploying
-      - deploy
-          # requires:
-          #   - build-and-push
+      - deploy:
+          requires:
+            - build-and-push
