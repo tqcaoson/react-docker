@@ -2,9 +2,9 @@
 
 cd `dirname $BASH_SOURCE`
 
-sudo docker-compose stop
-sudo docker-compose rm -f
-sudo docker-compose pull
-sudo docker-compose up -d
+docker-compose stop
+docker-compose rm -f
+docker-compose pull
+docker-compose up -d
 
 cd - > /dev/null
