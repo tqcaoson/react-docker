@@ -25,6 +25,14 @@ jobs:
       - run:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
+  deploy:
+    executor: docker/docker
+    steps:
+      # Please add $SSH_KEY_FINGERPRINT, $DEPLOYED_USER@ and DEPLOYED_SERVER to project's environment
+      - add_ssh_keys:
+          fingerprints:
+            - "8a:bf:3e:06:c5:8e:89:2e:82:84:80:ae:86:8f:7d:3b"
+      - run: ssh -oStrictHostKeyChecking=no ec2-user@$18.217.192.160 './deploy.sh'
 
 workflows:
   my-pipeline:
@@ -37,3 +45,7 @@ workflows:
             branches:
               only:
                 - master
+      # uncomment the 3 following lines to enable deploying
+      # - deploy:
+      #     requires:
+      #       - build-and-push
