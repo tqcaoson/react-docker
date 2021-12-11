@@ -31,8 +31,8 @@ jobs:
       # Please add $SSH_KEY_FINGERPRINT, $DEPLOYED_USER@ and DEPLOYED_SERVER to project's environment
       - add_ssh_keys:
           fingerprints:
-            - "8a:bf:3e:06:c5:8e:89:2e:82:84:80:ae:86:8f:7d:3b"
-      - run: ssh -oStrictHostKeyChecking=no ec2-user@$18.217.192.160 './deploy.sh'
+            - $SSH_KEY_FINGERPRINT
+      - run: ssh -oStrictHostKeyChecking=no $DEPLOYED_USER@$DEPLOYED_SERVER './deploy.sh'
 
 workflows:
   my-pipeline:
