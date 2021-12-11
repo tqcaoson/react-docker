@@ -5,16 +5,16 @@ orbs:
 
 jobs:
   build-and-push:
-    enviroment:
-      DOCKER_IMAGE: lis2il/react-docker
-      DOCKER_TAG: latest 
+    environment:
+      DOCKER_IMAGE: nhtua/react-docker
+      DOCKER_TAG: latest
     executor: docker/docker
     steps:
       - setup_remote_docker
       - checkout
       - docker/check:
-        docker-username: DOCKER_USER
-        docker-password: DOCKER_PASSWORD
+          docker-username: DOCKER_USER
+          docker-password: DOCKER_PASSWORD
       - docker/build:
           image: $DOCKER_IMAGE
           tag: $DOCKER_TAG
@@ -31,9 +31,9 @@ workflows:
     jobs:
       - node/test
       - build-and-push:
-        requires:
-          - node/test
-        filters:
-          branches:
-            only:
-              -master
+          requires:
+            - node/test
+          filters:
+            branches:
+              only:
+                - master
