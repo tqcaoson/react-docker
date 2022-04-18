@@ -199,7 +199,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React With Sơn
         </a>
       {data.map(item => (
           <div key={item._id}>
