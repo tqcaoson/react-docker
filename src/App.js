@@ -207,7 +207,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Trang Web này được Deploy tự động qua Circle CI lên Aws
+          Trang Web này được Build vào Docker và được Deploy tự động qua Circle CI lên Aws
         </a>
       {data.map(item => (
           <div key={item._id}>
