@@ -201,6 +201,14 @@ function App() {
         >
           Learn React With Sơn
         </a>
+        <a
+          className="App-link"
+          href="https://www.facebook.com/trinh.son.72/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Trang Web này được Deploy tự động qua Circle CI lên Aws
+        </a>
       {data.map(item => (
           <div key={item._id}>
             <div>Tiêu đề: {item.title}</div>
