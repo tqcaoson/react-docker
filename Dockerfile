@@ -1,7 +1,8 @@
 FROM node:14-stretch-slim as build
 WORKDIR /app
-COPY . /app
+COPY package.json yarn.lock ./
 RUN npm install
+COPY . /app
 RUN npm run build
 
 FROM nginx:latest
